@@ -1,1 +1,291 @@
-Hi
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>React</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/beige.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>React</h1>
+          <h3>Made by Maria Rogozhkina</h3>
+          <aside class="notes">
+            Greeting
+          </aside>
+        </section>
+        <section>
+          <h2>What is React?</h2>
+          <ul>
+            <li>
+              React is a JavaScript library — one of the most popular ones, with
+              over 100,000 stars on GitHub.
+            </li>
+            <li>
+              React is not a framework (unlike Angular).
+            </li>
+            <li>React is an open-source project created by Facebook.</li>
+            <li>
+              React is used in the front-end to build user interfaces (UI).
+            </li>
+          </ul>
+          <aside class="notes">
+            React is a tool for creating user_ínterfaces. This is a library (not a framework) created by Facebook. 
+          </aside>
+        </section>
+        <section>
+          <h2>What is the goal?</h2>
+          <p>
+            The main task of React is to ensure that what can be seen on web pages
+            is displayed on the screen. React facilitates interface creation greatly
+    		by breaking each page into small fragments. We call
+            these fragments <b>components</b>.
+          </p>
+          <aside class="notes">
+            The main task of React is to ensure that what can be seen on web pages is displayed on the screen. One of the most (моуст) important aspects of React is the fact that you can create compónents (компоунентс), which are like custom, reusable HTML (ЭйчТиЭмЭль) elements, to quickly and efficiently build user interfaces. 
+          </aside>
+        </section>
+        <section>
+          <section>
+            <h2>Components</h2>
+            <p>
+              A React component is, simply put, a piece of code that represents
+              part of a web page. Each component is a JavaScript function that
+              returns a piece of code representing a fragment of a page. Almost
+              everything in React consists of components, which are divided into
+              <b>class components</b> and <b>simple components</b>.
+            </p>
+            <aside class="notes">
+              Component is a small part of a page. In other words, component is a piece of code that represents a part of a web page. There_are two types of components: simple and class. 
+            </aside>
+          </section>
+          <section>
+            <h2>Example of a simple component</h2>
+            <pre><code class="hljs">
+	  function OurFirstComponent() {
+		return (
+		<h1>Hello, I am a React Component!</h1>
+		);
+		}
+          </code></pre>
+          <aside class="notes">
+            On the slide we can see an example of a simple component. As you can see, this is a normal function, nothing unusual.
+          </aside>
+          </section>
+          <section>
+            <h2>Example of a class component</h2>
+            <pre><code class="hljs">
+	class App extends Component {
+	  render() {
+		return (
+		  <div className="App">
+		     <h1>Hello, React!</h1>
+		  </div>
+		)
+	  }
+        }
+            </code></pre>
+            <aside class="notes">
+              Here_is an example of a class component. Class components have function called render().This function return JSX (ДжиЭсЭкс)-code of the component. Why JSX? Because React uses a prógramming language called JSX, which is similar to HTML but works inside JavaScript, which distínguishes (дистингуишиз) it from HTML.
+What is better to use: simple or class component? If you are interested in stateless components, preference should be given to functional components, in particular, they are easier to read. But if you want a component to have state — classes are more useful.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Props</h2>
+            <p>
+              Props are an effective way to pass existing data to a React
+              component. The component cannot change the props — they're
+              read-only.
+            </p>
+            <aside class="notes">
+              React also stréamlines how data (дейта) is stored (стооод) and handled (хэндлд), using state and props. Props are used for transmitting (транзмитин) data to a component. We can’t change them — they are read-only (оунли).
+            </aside>
+          </section>
+          <section>
+            <h2>Example</h2>
+            <pre><code class="hljs">
+  function Welcome(props) {
+	return <h1>Hello, {props.name}</h1>;
+	}  
+
+	const element = < Welcome name="Alice" />;
+	ReactDOM.render(
+		element,
+	    document.getElementById('root')
+		);
+			</code></pre>
+            <p>Result: "Hello, Alice" on the page</p>
+            <aside class="notes">
+              Let’s recap what happens in this example:
+We call ReactDOM.render() with the < Welcome name="Alice" /> element.
+React calls the Welcome component with {name: 'Alice’} as the props.
+Our Welcome component returns a <1>Hello, Alice</1> element as the result.
+React DOM efficiently updates the DOM (дом) to match <1>Hello, Alice</1>.
+            </aside>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>State</h2>
+            <p>
+              State is any data that should be saved and modified without
+              necessarily being added to a database.
+            </p>
+            <aside class="notes">
+              State is any data that should be saved and módified without necessarily being added to a database — for example, adding and removing items from a shopping cart before confirming (конфёмин) your purchase (пёчес).
+            </aside>
+          </section>
+          <section>
+            <h2>Example</h2>
+            <pre><code class="hljs">
+class Hello extends React.Component {  
+
+  constructor(){  
+	super();  
+	this.state = {  
+		message: "my friend (from state)!"  
+	};  
+	this.updateMessage = this.updateMessage.bind(this);  
+  }
+
+  updateMessage() {  
+	this.setState({  
+		message: "my friend (from changed state)!"  
+	});  
+}
+
+  render() {  
+	return (  
+	<div>  
+		<h1>Hello {this.state.message}!</h1>  
+		<button onClick={this.updateMessage}/>Click me!</button>  
+	</div>     
+	)  
+  }  
+}
+      </code></pre>
+      <aside class="notes">
+        We determine (детёмин) the initial state of "this.state" with some message, then we have a function that changes state. And then we indicate when exactly it is necessary to change the state — on click.
+      </aside>
+          </section>
+		</section>
+		<section>
+			<section>
+        <h2>Thinking in React</h2>
+        <aside class="notes">
+          One of the many great parts of React is how it makes you think about apps as you build them. Now we’ll walk you through (сру) the thought (сот) process (проусес) of building a searchable product data table using React.
+        </aside>
+			</section>
+			<section>
+				<h2>1. Break UI Into A Component Hierarchy</h2>
+				<p>Single responsibility principle</p>
+        <img src="lib/img/ex.png" alt="">
+        <aside class="notes">
+          Imagine that we already have a JSON API and a mock from our designer. The mock looks like this. 
+
+Step 1 (The first step): Break The UI (юай) Into A Component Hierarchy (хáйераки). 
+The first thing you’ll want to do is to draw (дроо) boxes around every component (and subcomponent (саб)) in the mock and give them all names. But how do you know what should be its own component? Use the same techniques (текникс) for deciding if you should create a new function or_object. One such technique is the single responsibility principle, that is, a component should ideally only do one thing. 
+In our example:
+FílterableProductTable (orange): contains the entirety (энтайети) of the example
+SearchBar (blue): receives all user_input
+ProductTable (green): displays and filters the data collection based on user input
+ProductCategoryRow (turquoise) (тóкуоиз): displays a heading for_each category
+ProductRow (red): displays a row for_each product
+
+Step 2 (The second step): Build A Static (стэтик) Version in React
+In this step we use props. At the end of this step, you’ll have a library of reusable components that render your data model. The components will only have render() methods since this is a static version of your_app. React’s one-way data flow (also called one-way binding) keeps everything modular_and (модьюларэнд) fast.
+
+Step 3 (The third step): Identify (айдéнтифай) The Minimal (but complete) Representation Of UI State
+To make your UI interactive, you need to be able to trigger changes to your underlying data model. React achieves this with state.
+To build your app correctly, first, you need to think of the minimal set of mutable state that your_app needs. The key (ки) here is DRY (драй): Don’t Repeat Yourself. Figure out (фигераут) the absolute minimal representation of the state your_application needs and compute everything else you need on-demand (деманд).
+Think of all of the pieces of data in our example application. We have:
+The original list of products
+The search text the user has entered (энтед)
+The value of the checkbox
+The filtered (филтеед) list of products
+Let’s go through each one and figure out which one is state. Ask three questions (куэсченз) about each piece of data:
+Is it passed in (пасд Ин) from a parent via (вайа) props? If so (соу), it probably isn’t state.
+Does it remain unchanged over time? If so, it probably isn’t state.
+Can you compute it based on any other state or props in your component? If so, it isn’t state.                                                                                             
+The original list of products is passed in as props, so that’s not state. The search text and the checkbox seem to be state since they change over time and can’t be computed from anything. And finally, the filtered list of products isn’t state because (бикоз) it can be computed by combining the original list of products with the search text and value of the checkbox.                                                                                                So finally, our state is:
+The search text the user has entered
+The value of the checkbox
+
+Step 4 (The fourth (фоос) step): Identify Where Your State Should Live
+OK (оукéй), so we’ve identified what the minimal set of app state is. Next, we need to identify which component mutates, or_owns, this state. It may not be immediately clear which component should own what state. This is often the most challenging part for newcomers to understand, so follow these (зиз) steps to figure it out:
+For each piece of state in your_application:
+Identify every component that renders something based on that state.
+Find a common owner component (a single component above (эбав) all the components that need the state in the hierarchy).
+Either (айзе) the common owner or another component higher_up in the hierarchy should own the state.
+If you can’t find a component where it makes sense (сенс) to own the state, create a new component solely (соул.ли) for holding the state and add it somewhere in the hierarchy above the common owner component.
+Let’s run through this strategy for_our application:
+ProductTable needs to filter the product list based on state and SearchBar needs to display the search text and checked state.
+The common owner component is FilterableProductTable.
+It conceptually (кенсепчуалли) makes sense for the filter text and checked value to live in FilterableProductTable
+        </aside>
+			</section>
+			<section>
+				<h2>2. Build A Static Version in React</h2>
+				<h2>3. Identify Minimal (but complete) Representation Of UI State</h2>
+				<h2>4. Identify Where Your State Should Live</h2>
+        <h2>5. Add Inverse Data Flow</h2>
+        <aside class="notes">
+          Step 5 (The fifth step): Add Inverse Data Flow
+So far, we’ve built an app that renders correctly as a function of props and state flowing down the hierarchy. Now it’s time to support data  flowing the other way: the form components deep in the hierarchy need to update the state in FilterableProductTable.
+React makes this data flow explicit (иксплисит) to help you understand how your program works, but it does require a little more typing than traditional two-way data binding.
+        </aside>
+			</section>
+		</section>
+		<section>
+			<h1>Thank you</h1>
+      <img src="lib/img/the end.png" alt="">
+      <aside class="notes">
+        And That’s It
+Hopefully (хоупфулли), this gives you an idea of how to think about building components and applications with React. Thank you for your_attention.
+      </aside>
+		</section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
